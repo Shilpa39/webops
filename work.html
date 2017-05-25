@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="reg.css">
+	<title>work</title>
+</head>
+<body style="background-color:#bbaabb;">
+<h1 style="margin-left: 10px;color:white"><b>Registration For Events</b></h1>
+<br><form action="/action_page.php" >
+<fieldset style="margin-left: 150px;background-color:#eeddee;">
+    <legend style="font-size: 150%;"><b>Personal information:</b></legend><br>
+    First name<br>
+    <input type="text" class="a" name="firstname" placeholder="Firstname" required><br><br>
+    Last name<br>
+    <input type="text" class="a" name="lastname" placeholder="Lastname" required><br><br>
+    Date of Birth<br>
+    <input type="Date" class="a" name="bod" min="1982-12-31" placeholder="YYYY-MM-DD" required><br><br>
+    City<br>
+    <input type="text" class="a" name="City" placeholder="City" required><br><br>
+    College<br>
+    <input type="text" class="a" name="College" placeholder="College" required><br><br>
+    E-mail<br>
+    <input type="email" class="a" name="email" placeholder="E-mail" required><br><br>
+    Contact number<br>
+    <input type="number" class="a" name="number" placeholder="0123456789" length="10" required><br><br>
+</fieldset>
+<br><br><br><br>
+<fieldset style="margin-left: 150px;background-color:#eeddee;">
+	<legend style="font-size: 150%;"><b>Event</b></legend><br>
+	Which event do you want to take part in?<br>
+	<input list="Events" class="a">
+	  <datalist id="Events">
+        <option value="Freestyle Solo">
+        <option value="Zumba Workshop">
+        <option value="Graphic Design Contest">
+        <option value="Origamy">
+        <option value="Chef Wars">
+        <option value="FIFA Tournament">
+        <option value="Muggle Quiddich(max 4 members)">
+        <option value="Treasure Hunt(max 4 members)">
+        <option value="What's the Good Word(max 2 members)">
+        <option value="spEnt Quiz(max 2 members)">
+	  </datalist><br><br><br>
+	Number of members in your team( Maximum 4 )<br>
+	 <input type="number" id="num" class="a" name="number" max="4" min="1" onchange="f1()"> 
+	 <br><br><div>
+	 	Member 2:<input type="text" id="id3" class="a" name="mem2" placeholder="Name" disabled=True>&nbsp&nbsp<input type="number" id="id4" class="a" name="no2" placeholder="Contact No" disabled=True><br>
+	 	Member 3:<input type="text" id="id5" class="a" name="mem3" placeholder="Name" disabled=True>&nbsp&nbsp<input type="number" id="id6" class="a" name="no3" placeholder="Contact No" disabled=True><br>
+	 	Member 4:<input type="text" id="id7" class="a" name="mem4" placeholder="Name" disabled=True>&nbsp&nbsp<input type="number" id="id8" class="a" name="no4" placeholder="Contact No" disabled=True><br>
+
+	 </div><br><br><br>
+	 Do you want food and/or accomodation arranged during Saarang?<br>
+	 <input type="checkbox"   name="acc" value="acc"> I want accomodation<br>
+     <input type="checkbox"  name="food" value="food"> I want food<br><br><br>
+     Kindly put your feedback about your last year Saarang experience here<br>
+      <textarea name="feedback" style="padding: 10px;" class="a" rows="10" cols="100">
+      </textarea> <br><br>
+</fieldset>
+<br><br><p id="demo"></p>
+    <input type="submit" id="s" class="b" style="background-color: #4CAF50" value="Submit"> <br>
+    <input type="Reset" id="r" class="b" style="background-color: white;color:black;" value="Reset">
+</form>
+<script type="text/javascript">
+function f1()
+{var x=documement.getElementById('num').value;
+var i;
+documement.getElementById("demo").innerHTML=x;
+if(x>1)
+{
+	for(i=3;i<=(2*x);i++)
+	{
+		documement.getElementById("id"+i).disabled=false;
+	}
+}}
+</script>
+</body>
+</html>
