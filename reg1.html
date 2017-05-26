@@ -91,37 +91,34 @@
       </textarea> <br><br>
 </fieldset>
 <br><br><p id="demo"></p>
-    <input type="submit" id="s" class="b" style="background-color: #4CAF50" value="Submit" ng-disabled="myForm.firstname.$invalid || myForm.lastname.$invalid || myForm.email.$invalid ||myForm.number.$invalid ||myForm.college.$invalid ||myForm.city.$invalid ||myForm.dob.$invalid "> <br>
+    <input type="submit" id="s" name="sub" ng-model="sub" class="b" style="background-color: #4CAF50" value="Submit" ng-disabled="myForm.firstname.$invalid || myForm.lastname.$invalid || myForm.email.$invalid ||myForm.number.$invalid ||myForm.college.$invalid ||myForm.city.$invalid ||myForm.dob.$invalid "> <br>
     <input type="Reset" id="r" class="b" style="background-color: white;color:black;" value="Reset">
 </form>
 <script type="text/javascript">
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
-    var fname = $scope.firstname;
     var j=0;
-    for(j=0;j<fname.length;j++)
+    for(j=0;j<$scope.firstname.length;j++)
     {
-       if(isNaN(fname[j])||fname.length==0)
+       if(isNaN($scope.firstname[j])||$scope.firstname.length==0)
        {document.getElementById('i1').innerHTML="Enter valid name"; /*Checking if name has numbers*/
-        document.getElementById("s").ng-disabled="True";
+        $scope.sub.ng-disabled=True;
        return;}  
     }
-    var lname = $scope.lastname;
     var j=0;
-    for(j=0;j<lname.length;j++)
+    for(j=0;j<$scope.lastname.length;j++)
     {
-       if(!(isNaN(lname[j]))||lname.length==0)
+       if(!(isNaN($scope.lastname[j]))||$scope.lastname.length==0)
        {document.getElementById('i2').innerHTML="Enter valid name"; /*Checking if name has numbers*/
-        document.getElementById("s").ng-disabled="True";
+        $scope.sub.ng-disabled=True;
         return;}  
     }
-    var con = $scope.number;
     var j=0;
-    for(j=0;j<number.length;j++)
+    for(j=0;j<$scope.number.length;j++)
     {
-       if(isNaN(number[j])||(number.length!=10))
+       if(isNaN($scope.number[j])||($scope.number.length!=10))
        {document.getElementById('i3').innerHTML="Enter valid number"; /*Checking if contact number has 10 numbers*/
-        document.getElementById("s").ng-disabled="True";
+        $scope.sub.ng-disabled=True;
        return;}  
     }
     
