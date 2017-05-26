@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="reg.css">
+	<title>Registration form</title>
+</head>
+<body style="background-color:#bbaabb;">
+<h1 style="margin-left: 10px;color:white"><b>Registration For Events</b></h1>
+<br><form ng-app="myApp" ng-controller="myCtrl" action="/action_page.php" name="myForm" novalidate>
+<fieldset style="margin-left: 150px;background-color:#eeddee;">
+    <legend style="font-size: 150%;"><b>Personal information:</b></legend><br>
+    First name<br><p>
+    <input type="text" class="a" name="firstname" placeholder="Firstname" ng-model="firstname" required><br><br>
+    <span style="color:red" ng-show="myForm.firstname.$touched && myForm.firstname.$invalid">
+    <span id="i1" ng-show="myForm.firstname.$error.required">Firstname is required.</span>
+    </span>
+    </p>
+    Last name<br>
+    <input type="text" class="a" name="lastname" placeholder="Lastname" ng-model="lastname" required><br><br>
+    <span style="color:red" ng-show="myForm.lastname.$touched && myForm.lastname.$invalid">
+    <span id="i2" ng-show="myForm.lastname.$error.required">Lastname is required.</span>
+    </span>
+    </p>
+    Date of Birth<br>
+    <input type="Date" class="a" name="dob" min="1982-12-31" placeholder="YYYY-MM-DD" ng-model="dob" required><br><br>
+    <span style="color:red" ng-show="myForm.dob.$touched && myForm.dob.$invalid">
+    <span ng-show="myForm.dob.$error.required">DOB is required.</span>
+    </span>
+    </p>
+    City<br>
+    <input type="text" class="a" name="city" placeholder="City" ng-model="city" required><br><br>
+    <span style="color:red" ng-show="myForm.city.$touched && myForm.city.$invalid">
+    <span ng-show="myForm.city.$error.required">City is required.</span>
+    </span>
+    </p>
+    College<br>
+    <input type="text" class="a" name="college" placeholder="College" ng-model="college" required><br><br>
+    <span style="color:red" ng-show="myForm.college.$touched && myForm.college.$invalid">
+    <span ng-show="myForm.college.$error.required">College is required.</span>
+    </span>
+    </p>
+    E-mail<br>
+    <input type="email" class="a" name="email" placeholder="E-mail" ng-model="email" required><br><br>
+    <span style="color:red" ng-show="myForm.email.$touched && myForm.email.$invalid">
+    <span ng-show="myForm.email.$error.required">E-mail is required.</span>
+    </span>
+    </p>
+    Contact number<br><p>
+    <input type="text" class="a" name="number" placeholder="0123456789" ng-model="number" required><br><br>
+    <span style="color:red" ng-show="myForm.number.$touched && myForm.number.$invalid">
+    <span id="i3" ng-show="myForm.number.$error.required">Contact no is required.</span>
+    </span>
+    </p>
+</fieldset>
+<br><br><br><br>
+<fieldset style="margin-left: 150px;background-color:#eeddee;">
+	<legend style="font-size: 150%;"><b>Event</b></legend><br>
+	Which event do you want to take part in?<br>
+	<input list="Events" class="a" name="events" ng-model="events" ><p>
+	  <datalist id="Events">
+        <option value="Freestyle Solo">
+        <option value="Zumba Workshop">
+        <option value="Graphic Design Contest">
+        <option value="Origamy">
+        <option value="Chef Wars">
+        <option value="FIFA Tournament">
+        <option value="Muggle Quiddich(max 4 members)">
+        <option value="Treasure Hunt(max 4 members)">
+        <option value="What's the Good Word(max 2 members)">
+        <option value="spEnt Quiz(max 2 members)">
+	  </datalist>
+    <span style="color:red" ng-show="myForm.events.$touched && myForm.events.$invalid">
+    <span ng-show="myForm.events.$error.required">Event selection is required.</span>
+    </span>
+    </p>
+      <br><br><br>
+	Number of members in your team( Maximum 4 )<br>
+	 <input type="number" id="num" class="a" name="number" max="4" min="1" value="1" onchange="f1()"> 
+	 <br><br><div>
+	 	Member 2:<input type="text" id="id3" class="a" name="mem2" placeholder="Name" disabled=False>&nbsp&nbsp<input type="number" id="id4" class="a" name="no2" placeholder="Contact No" disabled=True><br>
+	 	Member 3:<input type="text" id="id5" class="a" name="mem3" placeholder="Name" disabled=True>&nbsp&nbsp<input type="number" id="id6" class="a" name="no3" placeholder="Contact No" disabled=True><br>
+	 	Member 4:<input type="text" id="id7" class="a" name="mem4" placeholder="Name" disabled=True>&nbsp&nbsp<input type="number" id="id8" class="a" name="no4" placeholder="Contact No" disabled=True><br>
+	 </div><br><br><br>
+	 Do you want food and/or accomodation arranged during Saarang?<br>
+	 <input type="checkbox"   name="acc" value="acc"> I want accomodation<br>
+     <input type="checkbox"  name="food" value="food"> I want food<br><br><br>
+     Kindly put your feedback about your last year Saarang experience here<br>
+      <textarea name="feedback" style="padding: 10px;" class="a" rows="10" cols="100">
+      </textarea> <br><br>
+</fieldset>
+<br><br><p id="demo"></p>
+    <input type="submit" id="s" class="b" style="background-color: #4CAF50" value="Submit" ng-disabled="myForm.firstname.$invalid || myForm.lastname.$invalid || myForm.email.$invalid ||myForm.number.$invalid ||myForm.college.$invalid ||myForm.city.$invalid ||myForm.dob.$invalid "> <br>
+    <input type="Reset" id="r" class="b" style="background-color: white;color:black;" value="Reset">
+</form>
+<script type="text/javascript">
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    var fname = $scope.firstname;
+    var j=0;
+    for(j=0;j<fname.length;j++)
+    {
+       if(isNaN(fname[j])||fname.length==0)
+       {document.getElementById('i1').innerHTML="Enter valid name"; /*Checking if name has numbers*/
+        document.getElementById("s").ng-disabled="True";
+       return;}  
+    }
+    var lname = $scope.lastname;
+    var j=0;
+    for(j=0;j<lname.length;j++)
+    {
+       if(!(isNaN(lname[j]))||lname.length==0)
+       {document.getElementById('i2').innerHTML="Enter valid name"; /*Checking if name has numbers*/
+        document.getElementById("s").ng-disabled="True";
+        return;}  
+    }
+    var con = $scope.number;
+    var j=0;
+    for(j=0;j<number.length;j++)
+    {
+       if(isNaN(number[j])||(number.length!=10))
+       {document.getElementById('i3').innerHTML="Enter valid number"; /*Checking if contact number has 10 numbers*/
+        document.getElementById("s").ng-disabled="True";
+       return;}  
+    }
+    
+});
+</script>
+</body>
+</html>
