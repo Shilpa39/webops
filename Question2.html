@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+#sun {
+    position:absolute;
+    top:250px;
+    left:500px;
+    background-color: transparent;
+    }
+ #idk {
+    position:absolute;
+    top:320px;
+    left:580px;
+    background-color: transparent;
+    -moz-animation:pl1 7s  linear infinite;
+    }
+    div#idk:hover {
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+    }
+ #jupiter {
+   position:absolute;
+    top:320px;
+    left:580px;
+    background-color: transparent;
+    -moz-animation:pl2 7s linear infinite;
+    }
+    div#jupiter:hover {
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;}
+ #earth {
+   position:absolute;
+    top:320px;
+    left:580px;
+    background-color: transparent;
+    -moz-animation:pl3 7s linear infinite;
+    }  
+    div#earth:hover {
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;} 
+.d
+{
+	height:10px;
+	width: 50px;
+	background-color: transparent;
+	color: white;
+	font-size: 11px;
+	 top:-30px;
+    left:-3px;
+    border: 0px;
+}
+@-moz-keyframes pl1 {
+0% {
+
+-moz-transform:rotate(0deg) translateX(150px) rotate(0deg);
+
+}
+100% {
+-moz-transform:rotate(360deg) translateX(150px) rotate(-360deg);
+
+}
+}
+@-moz-keyframes pl2 {
+0% {
+
+-moz-transform:rotate(0deg) translateX(250px) rotate(0deg);
+
+}
+100% {
+-moz-transform:rotate(360deg) translateX(250px) rotate(-360deg);
+
+}
+}
+@-moz-keyframes pl3 {
+0% {
+
+-moz-transform:rotate(0deg) translateX(350px) rotate(0deg);
+
+}
+100% {
+-moz-transform:rotate(360deg) translateX(350px) rotate(-360deg);
+
+}
+}
+</style>
+</script>
+	<title>solar system</title>
+</head>
+<body style="background-color: black">
+<h1 style="text-align: center;color: white">Mini Solar System</h1>
+<div id="sun" ><img src="sun1.jpeg" ></div>
+<div id="idk" class="pic"><img src="idk.jpg" style="height: 50px;width: 50px"><dialog open class="d">Planet 1</dialog></div>
+<div id="jupiter" class="pic"><img src="jupiter.jpeg" style="height: 50px;width: 50px"><dialog open class="d">Planet 2</dialog></div>
+<div id="earth" class="pic"><img src="earth.jpg" style="height: 50px;width: 60px"><dialog open class="d">Planet 3</dialog></div>
+<div style="float:left;">
+<p style="color:white">To pause animation bring curser on planet</p></div>
+</body>
+</html>
